@@ -23,6 +23,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *action_Datenzeigen;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menu_Huehnerverwaltung;
@@ -42,6 +43,8 @@ public:
             MainWindow->setObjectName("MainWindow");
         MainWindow->setEnabled(true);
         MainWindow->resize(800, 600);
+        action_Datenzeigen = new QAction(MainWindow);
+        action_Datenzeigen->setObjectName("action_Datenzeigen");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         MainWindow->setCentralWidget(centralwidget);
@@ -88,6 +91,7 @@ public:
         menubar->addAction(menu_Pflege->menuAction());
         menubar->addAction(menu_Tierarzt->menuAction());
         menubar->addAction(menu_Sonstiges->menuAction());
+        menu_Huehnerverwaltung->addAction(action_Datenzeigen);
 
         retranslateUi(MainWindow);
 
@@ -97,6 +101,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        action_Datenzeigen->setText(QCoreApplication::translate("MainWindow", "&Datenzeigen", nullptr));
         menu_Huehnerverwaltung->setTitle(QCoreApplication::translate("MainWindow", "&H\303\274hnerverwaltung", nullptr));
         menu_Legeleistung->setTitle(QCoreApplication::translate("MainWindow", "&Legeleistung", nullptr));
         menu_Fuetterung->setTitle(QCoreApplication::translate("MainWindow", "&F\303\274tterung", nullptr));

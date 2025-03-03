@@ -9,15 +9,19 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dlgstammdaten.cpp \
     main.cpp \
     mainwindow.cpp \
     spalshscreen.cpp
 
 HEADERS += \
+    dlgstammdaten.h \
+    enums.h \
     mainwindow.h \
     spalshscreen.h
 
 FORMS += \
+    dlgstammdaten.ui \
     mainwindow.ui \
     spalshscreen.ui
 

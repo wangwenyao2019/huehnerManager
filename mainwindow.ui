@@ -30,6 +30,7 @@
     <property name="title">
      <string>&amp;Hühnerverwaltung</string>
     </property>
+    <addaction name="action_Datenzeigen"/>
    </widget>
    <widget class="QMenu" name="menu_Legeleistung">
     <property name="enabled">
@@ -106,6 +107,11 @@
    <addaction name="menu_Sonstiges"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Datenzeigen">
+   <property name="text">
+    <string>&amp;Datenzeigen</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

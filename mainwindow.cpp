@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "dlgstammdaten.h"
 
 #include <QString>
 #include <QMessageBox>
@@ -15,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QPixmap pix(":/icons/icon/chick.png");
     setWindowIcon(pix);
-    setWindowTitle("Hühner Manager v1.0");
+    setWindowTitle(tr("Hühner Manager Pro v1.0"));
 
     //DB-Verbindung vorbereiten
     _db = QSqlDatabase::addDatabase("QODBC");
@@ -27,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     _db.setDatabaseName(connectingstr);
     if(!_db.open())
     {
-        QMessageBox::critical(this, "Dantenbank-Verbindungsfehler", _db.lastError().text());
+        QMessageBox::critical(this, tr("Dantenbank-Verbindungsfehler"), _db.lastError().text());
         return;
     }
     qDebug()<<"DB Opened";
@@ -40,3 +41,9 @@ MainWindow::~MainWindow()
     qDebug()<<"DB closed";
     delete ui;
 }
+
+void MainWindow::on_action_Datenzeigen_triggered()
+{
+    setCentralWidget(new DlgStammdaten(this, _db));
+}
+

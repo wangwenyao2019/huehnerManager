@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>523</width>
-    <height>436</height>
+    <width>543</width>
+    <height>538</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,11 +57,14 @@
        <property name="font">
         <font>
          <family>Segoe Print</family>
-         <pointsize>7</pointsize>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
         <string>by Wenyao Wang</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>

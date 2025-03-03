@@ -31,6 +31,11 @@ private:
     QStandardItemModel  *_model;
     QSqlDatabase        _db;
     QSqlQuery           *_query;
+
+    int               _currentRecord;
+    int               _recordCount;
+
+    void loadData();
 };
 
 #endif // DLGSTAMMDATEN_H

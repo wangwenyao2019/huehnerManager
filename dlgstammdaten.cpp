@@ -1,5 +1,6 @@
 #include "dlgstammdaten.h"
 #include "ui_dlgstammdaten.h"
+
 #include <QMessageBox>
 #include <QDebug>
 #include <QSqlError>
@@ -135,9 +136,11 @@ void DlgStammdaten::on_btnNeu_clicked()
     QModelIndex index = _model->index(row, 1);
     ui->tvStammdaten->setCurrentIndex(index);
     ui->tvStammdaten->edit(index);
+
+    _modus = Modus::newMode;
 }
 
-void DlgStammdaten::on_btnBearbeiten_clicked()
+void DlgStammdaten::on_btnEinfuegen_clicked()
 {
     int row = ui->tvStammdaten->currentIndex().row(); // Merke Dir die aktuelle Position des Cursors
     _model->insertRows(row, 1); //An gemerkter Position, eine Zeile anhaegen
@@ -146,6 +149,8 @@ void DlgStammdaten::on_btnBearbeiten_clicked()
     QModelIndex index = _model->index(row,1); //Merke dir die Adresse des neuen Elementes
     ui->tvStammdaten->setCurrentIndex(index); //Positioniere auf das neue Element
     ui->tvStammdaten->edit(index);           //Oeffne das neue Element zum Bearbeiten
+
+    _modus = Modus::newMode;
 }
 
 void DlgStammdaten::on_btnSpeichern_clicked()
@@ -158,8 +163,18 @@ void DlgStammdaten::on_btnAbbrechen_clicked()
 
 }
 
-void DlgStammdaten::on_btnEinfuegen_clicked()
+void DlgStammdaten::loadData()
 {
+    //Formulieren einer Abfrage zum Senden an die DB
+    QString sqlStetement = "select * from projekt";
 
+    if(!_query->exec(sqlStetement))
+    {
+        QMessageBox::critical(this, "Zugriffsfehler", _db.lastError().text());
+        return;
+    }
+
+    _recordCount = _query->numRowsAffected();
+    _modus = Modus::noMode;
 }
 

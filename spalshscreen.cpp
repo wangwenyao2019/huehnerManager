@@ -6,6 +6,8 @@ spalshScreen::spalshScreen(QWidget *parent)
     , ui(new Ui::spalshScreen)
 {
     ui->setupUi(this);
+
+    setWindowFlags(Qt::FramelessWindowHint);
 }
 
 spalshScreen::~spalshScreen()

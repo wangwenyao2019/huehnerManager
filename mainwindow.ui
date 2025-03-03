@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -23,6 +26,84 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_Huehnerverwaltung">
+    <property name="title">
+     <string>&amp;Hühnerverwaltung</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Legeleistung">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Legeleistung</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Fuetterung">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Fütterung</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Zucht">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Zucht</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Krankheiten">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Krankheiten</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Medikamentengabe">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Medikamentengabe</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Pflege">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Pflege</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Tierarzt">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Tierarzt</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_Sonstiges">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="title">
+     <string>&amp;Sonstiges</string>
+    </property>
+   </widget>
+   <addaction name="menu_Huehnerverwaltung"/>
+   <addaction name="menu_Legeleistung"/>
+   <addaction name="menu_Fuetterung"/>
+   <addaction name="menu_Zucht"/>
+   <addaction name="menu_Krankheiten"/>
+   <addaction name="menu_Medikamentengabe"/>
+   <addaction name="menu_Pflege"/>
+   <addaction name="menu_Tierarzt"/>
+   <addaction name="menu_Sonstiges"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

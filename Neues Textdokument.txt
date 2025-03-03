@@ -1,0 +1,9 @@
+# Qt Datei
+build-*/
+*.pro.user
+*.autosave
+
+# Compile and generate files
+*.o
+*.exe
+*.dll

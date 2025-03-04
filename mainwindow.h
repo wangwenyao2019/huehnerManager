@@ -19,7 +19,8 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_action_Datenzeigen_triggered();
+    void on_action_Stammdaten_triggered();
+    void on_actionLegeLe_istung_erfassen_triggered();
 
 private:
     Ui::MainWindow *ui;

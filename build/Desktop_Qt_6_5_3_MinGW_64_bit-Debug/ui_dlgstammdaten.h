@@ -32,7 +32,7 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QHBoxLayout *horizontalLayout;
     QPushButton *btnNeu;
-    QPushButton *btnBearbeiten;
+    QPushButton *btnEinfuegen;
     QSpacerItem *horizontalSpacer_4;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *btnSpeichern;
@@ -42,7 +42,7 @@ public:
     QSpacerItem *horizontalSpacer_6;
     QPushButton *btnScliessen;
 
-    void setupUi(QDialog *DlgStammdaten)
+    void setupUi(QWidget *DlgStammdaten)
     {
         if (DlgStammdaten->objectName().isEmpty())
             DlgStammdaten->setObjectName("DlgStammdaten");
@@ -80,10 +80,10 @@ public:
 
         horizontalLayout->addWidget(btnNeu);
 
-        btnBearbeiten = new QPushButton(DlgStammdaten);
-        btnBearbeiten->setObjectName("btnBearbeiten");
+        btnEinfuegen = new QPushButton(DlgStammdaten);
+        btnEinfuegen->setObjectName("btnEinfuegen");
 
-        horizontalLayout->addWidget(btnBearbeiten);
+        horizontalLayout->addWidget(btnEinfuegen);
 
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -137,7 +137,7 @@ public:
         DlgStammdaten->setWindowTitle(QCoreApplication::translate("DlgStammdaten", "Dialog", nullptr));
         label->setText(QCoreApplication::translate("DlgStammdaten", "Daten von H\303\274hner", nullptr));
         btnNeu->setText(QCoreApplication::translate("DlgStammdaten", "Neu", nullptr));
-        btnBearbeiten->setText(QCoreApplication::translate("DlgStammdaten", "Bearbeiten", nullptr));
+        btnEinfuegen->setText(QCoreApplication::translate("DlgStammdaten", "Einf\303\274gen", nullptr));
         btnSpeichern->setText(QCoreApplication::translate("DlgStammdaten", "Speichern", nullptr));
         btnAbbrechen->setText(QCoreApplication::translate("DlgStammdaten", "Abbrechen", nullptr));
         btnScliessen->setText(QCoreApplication::translate("DlgStammdaten", "Schlie\303\237en", nullptr));

@@ -1,0 +1,10 @@
+release/frmlegedaten.o
+release/frmstammdaten.o
+release/main.o
+release/mainwindow.o
+release/spalshscreen.o
+release/qrc_Ressourcen.o
+release/moc_frmlegedaten.o
+release/moc_frmstammdaten.o
+release/moc_mainwindow.o
+release/moc_spalshscreen.o

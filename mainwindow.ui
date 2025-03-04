@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>687</width>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>687</width>
      <height>21</height>
     </rect>
    </property>
@@ -30,86 +30,92 @@
     <property name="title">
      <string>&amp;Hühnerverwaltung</string>
     </property>
-    <addaction name="action_Datenzeigen"/>
+    <addaction name="action_Stammdaten"/>
+    <addaction name="actionLegeLe_istung_erfassen"/>
    </widget>
    <widget class="QMenu" name="menu_Legeleistung">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="title">
-     <string>&amp;Legeleistung</string>
+     <string>&amp;Other</string>
     </property>
-   </widget>
-   <widget class="QMenu" name="menu_Fuetterung">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Fütterung</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_Zucht">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Zucht</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_Krankheiten">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Krankheiten</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_Medikamentengabe">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Medikamentengabe</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_Pflege">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Pflege</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_Tierarzt">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Tierarzt</string>
-    </property>
-   </widget>
-   <widget class="QMenu" name="menu_Sonstiges">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="title">
-     <string>&amp;Sonstiges</string>
-    </property>
+    <addaction name="actionFuetterung"/>
+    <addaction name="actionZucht"/>
+    <addaction name="actionKrankheit"/>
+    <addaction name="actionMedikamentengabe"/>
+    <addaction name="actionPflege"/>
+    <addaction name="actionTierarzt"/>
+    <addaction name="actionSonstiges"/>
    </widget>
    <addaction name="menu_Huehnerverwaltung"/>
    <addaction name="menu_Legeleistung"/>
-   <addaction name="menu_Fuetterung"/>
-   <addaction name="menu_Zucht"/>
-   <addaction name="menu_Krankheiten"/>
-   <addaction name="menu_Medikamentengabe"/>
-   <addaction name="menu_Pflege"/>
-   <addaction name="menu_Tierarzt"/>
-   <addaction name="menu_Sonstiges"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action_Datenzeigen">
+  <action name="action_Stammdaten">
    <property name="text">
-    <string>&amp;Datenzeigen</string>
+    <string>&amp;Stammdaten verwalten</string>
+   </property>
+  </action>
+  <action name="actionLegeLe_istung_erfassen">
+   <property name="text">
+    <string>LegeLe&amp;istung erfassen</string>
+   </property>
+  </action>
+  <action name="actionFuetterung">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Fütterung</string>
+   </property>
+  </action>
+  <action name="actionZucht">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Zucht</string>
+   </property>
+  </action>
+  <action name="actionKrankheit">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Krankheit</string>
+   </property>
+  </action>
+  <action name="actionMedikamentengabe">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Medikamentengabe</string>
+   </property>
+  </action>
+  <action name="actionPflege">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Pflege</string>
+   </property>
+  </action>
+  <action name="actionTierarzt">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Tierarzt</string>
+   </property>
+  </action>
+  <action name="actionSonstiges">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Sonstiges</string>
    </property>
   </action>
  </widget>

@@ -31,7 +31,7 @@ public:
     {
         if (spalshScreen->objectName().isEmpty())
             spalshScreen->setObjectName("spalshScreen");
-        spalshScreen->resize(523, 436);
+        spalshScreen->resize(543, 538);
         gridLayout = new QGridLayout(spalshScreen);
         gridLayout->setObjectName("gridLayout");
         verticalLayout = new QVBoxLayout();
@@ -59,8 +59,9 @@ public:
         label_3->setObjectName("label_3");
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Segoe Print")});
-        font1.setPointSize(7);
+        font1.setPointSize(10);
         label_3->setFont(font1);
+        label_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         verticalLayout->addWidget(label_3);
 

@@ -1,109 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>DlgStammdaten</class>
- <widget class="QDialog" name="DlgStammdaten">
+ <class>Frmlegedaten</class>
+ <widget class="QWidget" name="Frmlegedaten">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>876</width>
-    <height>660</height>
+    <width>786</width>
+    <height>537</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+   <item row="0" column="0" colspan="2">
     <widget class="QLabel" name="label">
      <property name="font">
       <font>
-       <family>Rockwell Nova</family>
        <pointsize>18</pointsize>
        <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>Daten von Hühner</string>
+      <string>Legedaten</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item row="1" column="0" rowspan="2" colspan="2">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
-       <width>855</width>
+       <width>765</width>
        <height>20</height>
       </size>
      </property>
     </spacer>
    </item>
-   <item row="2" column="0">
-    <widget class="QTableView" name="tvStammdaten"/>
+   <item row="2" column="1">
+    <widget class="QTableView" name="tvLegedaten"/>
    </item>
-   <item row="3" column="0">
-    <spacer name="horizontalSpacer_3">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>855</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="4" column="0">
+   <item row="3" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="btnNeu">
+       <property name="minimumSize">
+        <size>
+         <width>147</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
         <string>Neu</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="btnBearbeiten">
-       <property name="text">
-        <string>Bearbeiten</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer_4">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
+      <widget class="QPushButton" name="btnSpeichern">
+       <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>147</width>
+         <height>0</height>
         </size>
        </property>
-      </spacer>
-     </item>
-    </layout>
-   </item>
-   <item row="5" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QPushButton" name="btnSpeichern">
        <property name="text">
         <string>Speichern</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btnAbbrechen">
-       <property name="text">
-        <string>Abbrechen</string>
        </property>
       </widget>
      </item>
@@ -122,10 +89,47 @@
      </item>
     </layout>
    </item>
-   <item row="6" column="0">
+   <item row="4" column="1">
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <spacer name="horizontalSpacer_6">
+      <widget class="QPushButton" name="btnLegestarten">
+       <property name="minimumSize">
+        <size>
+         <width>147</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Legemessung starten</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnLegeSchliessen">
+       <property name="text">
+        <string>Legemessung abschließen</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item row="5" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -138,7 +142,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="btnScliessen">
+      <widget class="QPushButton" name="btnClose">
        <property name="text">
         <string>Schließen</string>
        </property>
@@ -151,18 +155,18 @@
  <resources/>
  <connections>
   <connection>
-   <sender>btnScliessen</sender>
+   <sender>btnClose</sender>
    <signal>clicked()</signal>
-   <receiver>DlgStammdaten</receiver>
+   <receiver>Frmlegedaten</receiver>
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>847</x>
-     <y>633</y>
+     <x>660</x>
+     <y>497</y>
     </hint>
     <hint type="destinationlabel">
-     <x>845</x>
-     <y>662</y>
+     <x>714</x>
+     <y>514</y>
     </hint>
    </hints>
   </connection>

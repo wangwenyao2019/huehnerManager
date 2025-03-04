@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "dlgstammdaten.h"
+#include "frmstammdaten.h"
+#include "frmlegedaten.h"
 
 #include <QString>
 #include <QMessageBox>
@@ -42,8 +43,13 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_action_Datenzeigen_triggered()
+void MainWindow::on_action_Stammdaten_triggered()
 {
-    setCentralWidget(new DlgStammdaten(this, _db));
+    setCentralWidget(new FrmStammdaten(this, _db));
+}
+
+void MainWindow::on_actionLegeLe_istung_erfassen_triggered()
+{
+    setCentralWidget(new Frmlegedaten(this, _db));
 }
 

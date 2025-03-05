@@ -31,7 +31,6 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *btnNeuMitarbeiter;
     QPushButton *btnSpeichern;
-    QPushButton *btnBearbeiten;
     QPushButton *btnEntfernen;
     QSpacerItem *horizontalSpacer_2;
     QHBoxLayout *horizontalLayout;
@@ -74,12 +73,6 @@ public:
 
         horizontalLayout_2->addWidget(btnSpeichern);
 
-        btnBearbeiten = new QPushButton(FrmAddMitarbeiter);
-        btnBearbeiten->setObjectName("btnBearbeiten");
-        btnBearbeiten->setMinimumSize(QSize(100, 0));
-
-        horizontalLayout_2->addWidget(btnBearbeiten);
-
         btnEntfernen = new QPushButton(FrmAddMitarbeiter);
         btnEntfernen->setObjectName("btnEntfernen");
         btnEntfernen->setMinimumSize(QSize(100, 0));
@@ -121,7 +114,6 @@ public:
         label->setText(QCoreApplication::translate("FrmAddMitarbeiter", "Mitarbeiter Verwaltung", nullptr));
         btnNeuMitarbeiter->setText(QCoreApplication::translate("FrmAddMitarbeiter", "Neu Mitarbeiter", nullptr));
         btnSpeichern->setText(QCoreApplication::translate("FrmAddMitarbeiter", "Speichern", nullptr));
-        btnBearbeiten->setText(QCoreApplication::translate("FrmAddMitarbeiter", "Bearbeiten", nullptr));
         btnEntfernen->setText(QCoreApplication::translate("FrmAddMitarbeiter", "Entfernen", nullptr));
         pushButton_3->setText(QCoreApplication::translate("FrmAddMitarbeiter", "Schlie\303\237en", nullptr));
     } // retranslateUi

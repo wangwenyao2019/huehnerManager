@@ -21,9 +21,7 @@ public:
 
 private slots:
     void on_btnNeuMitarbeiter_clicked();
-    void on_btnBearbeiten_clicked();
     void on_btnEntfernen_clicked();
-
     void on_btnSpeichern_clicked();
 
 private:

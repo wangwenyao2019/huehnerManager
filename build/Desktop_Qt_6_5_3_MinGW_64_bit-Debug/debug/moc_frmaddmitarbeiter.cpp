@@ -41,19 +41,17 @@ static constexpr auto qt_meta_stringdata_CLASSFrmAddMitarbeiterENDCLASS = QtMocH
     "FrmAddMitarbeiter",
     "on_btnNeuMitarbeiter_clicked",
     "",
-    "on_btnBearbeiten_clicked",
     "on_btnEntfernen_clicked",
     "on_btnSpeichern_clicked"
 );
 #else  // !QT_MOC_HAS_STRING_DATA
 struct qt_meta_stringdata_CLASSFrmAddMitarbeiterENDCLASS_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[10];
     char stringdata0[18];
     char stringdata1[29];
     char stringdata2[1];
-    char stringdata3[25];
+    char stringdata3[24];
     char stringdata4[24];
-    char stringdata5[24];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CLASSFrmAddMitarbeiterENDCLASS_t::offsetsAndSizes) + ofs), len 
@@ -62,14 +60,12 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSFrmAddMitarbeiterENDCLASS_t qt_
         QT_MOC_LITERAL(0, 17),  // "FrmAddMitarbeiter"
         QT_MOC_LITERAL(18, 28),  // "on_btnNeuMitarbeiter_clicked"
         QT_MOC_LITERAL(47, 0),  // ""
-        QT_MOC_LITERAL(48, 24),  // "on_btnBearbeiten_clicked"
-        QT_MOC_LITERAL(73, 23),  // "on_btnEntfernen_clicked"
-        QT_MOC_LITERAL(97, 23)   // "on_btnSpeichern_clicked"
+        QT_MOC_LITERAL(48, 23),  // "on_btnEntfernen_clicked"
+        QT_MOC_LITERAL(72, 23)   // "on_btnSpeichern_clicked"
     },
     "FrmAddMitarbeiter",
     "on_btnNeuMitarbeiter_clicked",
     "",
-    "on_btnBearbeiten_clicked",
     "on_btnEntfernen_clicked",
     "on_btnSpeichern_clicked"
 };
@@ -83,7 +79,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFrmAddMitarbeiterENDCLASS[] = {
       11,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -91,13 +87,11 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSFrmAddMitarbeiterENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x08,    1 /* Private */,
-       3,    0,   39,    2, 0x08,    2 /* Private */,
-       4,    0,   40,    2, 0x08,    3 /* Private */,
-       5,    0,   41,    2, 0x08,    4 /* Private */,
+       1,    0,   32,    2, 0x08,    1 /* Private */,
+       3,    0,   33,    2, 0x08,    2 /* Private */,
+       4,    0,   34,    2, 0x08,    3 /* Private */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -116,8 +110,6 @@ Q_CONSTINIT const QMetaObject FrmAddMitarbeiter::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<FrmAddMitarbeiter, std::true_type>,
         // method 'on_btnNeuMitarbeiter_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_btnBearbeiten_clicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_btnEntfernen_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_btnSpeichern_clicked'
@@ -133,9 +125,8 @@ void FrmAddMitarbeiter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         (void)_t;
         switch (_id) {
         case 0: _t->on_btnNeuMitarbeiter_clicked(); break;
-        case 1: _t->on_btnBearbeiten_clicked(); break;
-        case 2: _t->on_btnEntfernen_clicked(); break;
-        case 3: _t->on_btnSpeichern_clicked(); break;
+        case 1: _t->on_btnEntfernen_clicked(); break;
+        case 2: _t->on_btnSpeichern_clicked(); break;
         default: ;
         }
     }
@@ -161,13 +152,13 @@ int FrmAddMitarbeiter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 3)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 3;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 3)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 3;
     }
     return _id;
 }

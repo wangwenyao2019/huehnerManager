@@ -32,10 +32,12 @@ public:
     QAction *actionPflege;
     QAction *actionTierarzt;
     QAction *actionSonstiges;
+    QAction *actionNeue_Mitarbeiter;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menu_Huehnerverwaltung;
-    QMenu *menu_Legeleistung;
+    QMenu *menu_Anderes;
+    QMenu *menu_Verwaltung;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -43,7 +45,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->setEnabled(true);
-        MainWindow->resize(687, 448);
+        MainWindow->resize(702, 418);
         action_Stammdaten = new QAction(MainWindow);
         action_Stammdaten->setObjectName("action_Stammdaten");
         actionLegeLe_istung_erfassen = new QAction(MainWindow);
@@ -69,33 +71,39 @@ public:
         actionSonstiges = new QAction(MainWindow);
         actionSonstiges->setObjectName("actionSonstiges");
         actionSonstiges->setEnabled(false);
+        actionNeue_Mitarbeiter = new QAction(MainWindow);
+        actionNeue_Mitarbeiter->setObjectName("actionNeue_Mitarbeiter");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 687, 21));
+        menubar->setGeometry(QRect(0, 0, 702, 21));
         menu_Huehnerverwaltung = new QMenu(menubar);
         menu_Huehnerverwaltung->setObjectName("menu_Huehnerverwaltung");
-        menu_Legeleistung = new QMenu(menubar);
-        menu_Legeleistung->setObjectName("menu_Legeleistung");
-        menu_Legeleistung->setEnabled(true);
+        menu_Anderes = new QMenu(menubar);
+        menu_Anderes->setObjectName("menu_Anderes");
+        menu_Anderes->setEnabled(true);
+        menu_Verwaltung = new QMenu(menubar);
+        menu_Verwaltung->setObjectName("menu_Verwaltung");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
 
         menubar->addAction(menu_Huehnerverwaltung->menuAction());
-        menubar->addAction(menu_Legeleistung->menuAction());
+        menubar->addAction(menu_Anderes->menuAction());
+        menubar->addAction(menu_Verwaltung->menuAction());
         menu_Huehnerverwaltung->addAction(action_Stammdaten);
         menu_Huehnerverwaltung->addAction(actionLegeLe_istung_erfassen);
-        menu_Legeleistung->addAction(actionFuetterung);
-        menu_Legeleistung->addAction(actionZucht);
-        menu_Legeleistung->addAction(actionKrankheit);
-        menu_Legeleistung->addAction(actionMedikamentengabe);
-        menu_Legeleistung->addAction(actionPflege);
-        menu_Legeleistung->addAction(actionTierarzt);
-        menu_Legeleistung->addAction(actionSonstiges);
+        menu_Anderes->addAction(actionFuetterung);
+        menu_Anderes->addAction(actionZucht);
+        menu_Anderes->addAction(actionKrankheit);
+        menu_Anderes->addAction(actionMedikamentengabe);
+        menu_Anderes->addAction(actionPflege);
+        menu_Anderes->addAction(actionTierarzt);
+        menu_Anderes->addAction(actionSonstiges);
+        menu_Verwaltung->addAction(actionNeue_Mitarbeiter);
 
         retranslateUi(MainWindow);
 
@@ -114,8 +122,10 @@ public:
         actionPflege->setText(QCoreApplication::translate("MainWindow", "Pflege", nullptr));
         actionTierarzt->setText(QCoreApplication::translate("MainWindow", "Tierarzt", nullptr));
         actionSonstiges->setText(QCoreApplication::translate("MainWindow", "Sonstiges", nullptr));
+        actionNeue_Mitarbeiter->setText(QCoreApplication::translate("MainWindow", "Neue &Mitarbeiter", nullptr));
         menu_Huehnerverwaltung->setTitle(QCoreApplication::translate("MainWindow", "&H\303\274hnerverwaltung", nullptr));
-        menu_Legeleistung->setTitle(QCoreApplication::translate("MainWindow", "&Other", nullptr));
+        menu_Anderes->setTitle(QCoreApplication::translate("MainWindow", "&Anderes", nullptr));
+        menu_Verwaltung->setTitle(QCoreApplication::translate("MainWindow", "&Verwaltung", nullptr));
     } // retranslateUi
 
 };

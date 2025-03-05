@@ -1,9 +1,13 @@
+release/dlgloginwindow.o
+release/frmaddmitarbeiter.o
 release/frmlegedaten.o
 release/frmstammdaten.o
 release/main.o
 release/mainwindow.o
 release/spalshscreen.o
 release/qrc_Ressourcen.o
+release/moc_dlgloginwindow.o
+release/moc_frmaddmitarbeiter.o
 release/moc_frmlegedaten.o
 release/moc_frmstammdaten.o
 release/moc_mainwindow.o

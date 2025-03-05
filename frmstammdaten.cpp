@@ -78,6 +78,7 @@ void FrmStammdaten::on_btnNeu_2_clicked()
 {
     int row = _model->rowCount();
     _model->insertRow(row);
+    _model->setData(_model->index(row, 0), true, IsNewRole);
     ui->tvStammdaten->edit(_model->index(row, 0));
 
     _modus = Modus::newMode;
@@ -112,8 +113,9 @@ void FrmStammdaten::on_btnSpeichern_2_clicked()
         QSqlDatabase::database().rollback();
     }
 
-    qDebug() << "Executing SQL:" << query.lastQuery();
-    qDebug() << "Bound values:" << query.boundValues();
+    qDebug() << "r115-Executing SQL:" << query.lastQuery();
+    qDebug() << "r116-Bound values:" << query.boundValues();
+    loadData();
 }
 
 bool FrmStammdaten::isRowEmpty(int row) const
@@ -149,11 +151,6 @@ bool FrmStammdaten::saveRowToDatabase(int row, QSqlQuery &query)
                   ":ringnr, :name, :schlupfdatum, :rasse, :geschlecht, "
                   ":stamm, :federfarbe, :kammfarbe, :gewicht, :vertraeglichkeit, "
                   ":eierfarbe, :legeleistung, :eiergewicht, :befruchtungsrate)");
-
-    // for (int col = 0; col < 14; col++)
-    // {
-    //     query.bindValue(col, _model->item(row, col) ? _model->item(row, col)->text() : NULL); //check
-    // }
     auto itemText = [&](int col) {
         return _model->item(row, col) ? _model->item(row, col)->text() : "";
     };
@@ -172,7 +169,6 @@ bool FrmStammdaten::saveRowToDatabase(int row, QSqlQuery &query)
     query.bindValue(":eiergewicht",     itemText(12));
     query.bindValue(":befruchtungsrate",itemText(13));
 
-
     if(!query.exec()) {
         QMessageBox::critical(this, tr("Fehler"),
                               QString("Zeile %1:\n%2").arg(row+1).arg(query.lastError().text()));
@@ -181,7 +177,7 @@ bool FrmStammdaten::saveRowToDatabase(int row, QSqlQuery &query)
     return true;
 }
 
-// Wenn Speichern klicket, loeschen leere row
+// Wenn btnSpeichern klicket, loeschen leere row
 void FrmStammdaten::removeEmptyRows()
 {
     for(int row = _model->rowCount()-1; row >= 0; row--) {
@@ -193,28 +189,8 @@ void FrmStammdaten::removeEmptyRows()
 
 void FrmStammdaten::on_btnAbbrechen_2_clicked()
 {
-    saveOriginalData();
-    for (int row = _model->rowCount() - 1; row >= 0; row--) {
-        if (_model->data(_model->index(row, 0), IsNewRole).toBool()) {
-            _model->removeRow(row);
-        }
-    }
+    loadData();
     _modus = Modus::noMode;
-}
-
-void FrmStammdaten::saveOriginalData()
-{
-    _originalData.clear();
-    for (int row = 0; row < _model->rowCount(); ++row)
-    {
-        QStringList rowData;
-        for (int col = 0; col < _model->columnCount(); ++col)
-        {
-            QStandardItem *item = _model->item(row, col);
-            rowData << (item ? item->text() : "");
-        }
-        _originalData.append(rowData);
-    }
 }
 
 void FrmStammdaten::on_btnEntfernen_2_clicked()

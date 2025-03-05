@@ -1,9 +1,13 @@
+debug/dlgloginwindow.o
+debug/frmaddmitarbeiter.o
 debug/frmlegedaten.o
 debug/frmstammdaten.o
 debug/main.o
 debug/mainwindow.o
 debug/spalshscreen.o
 debug/qrc_Ressourcen.o
+debug/moc_dlgloginwindow.o
+debug/moc_frmaddmitarbeiter.o
 debug/moc_frmlegedaten.o
 debug/moc_frmstammdaten.o
 debug/moc_mainwindow.o

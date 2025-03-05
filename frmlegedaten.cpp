@@ -60,26 +60,40 @@ void Frmlegedaten::on_btnNeu_clicked()
     int row = _model->rowCount();
     _model->insertRow(row);
     _model->setItem(row, 0, new QStandardItem(QDate::currentDate().toString("yyyy-MM-dd")));
+    _model->setData(_model->index(row, 0), true, IsNewRole);
     ui->tvLegedaten->edit(_model->index(row, 1));
 }
 
 void Frmlegedaten::on_btnSpeichern_clicked()
 {
     QSqlQuery query(_db);
-    for (int r = 0; r < _model->rowCount(); r++)
+    for (int row = 0; row < _model->rowCount(); row++)
     {
-        query.prepare("INSERT INTO legedaten (lm_datum, lm_ring_nr, lm_markierungs_farbe, lm_anzahl, lm_gewicht) "
-                       "VALUES (:datum, :ringnr, :farbe, :anzahl, :gewicht) ");
-        for (int col = 0; col < 5; ++col)
+        if(_model->data(_model->index(row, 0), IsNewRole).toBool())
         {
-            query.bindValue(col, _model->item(r, col) ? _model->item(r, col)->text() : QVariant());
-        }
-        if (!query.exec())
-        {
-            QMessageBox::critical(this, tr("Fehler"), _db.lastError().text());
-            return;
+            query.prepare("INSERT INTO legedaten (lm_datum, lm_ring_nr, lm_markierungs_farbe, lm_anzahl, lm_gewicht) "
+                          "VALUES (:datum, :ringnr, :farbe, :anzahl, :gewicht); ");
+                QStandardItem *item;
+                item = _model->item(row, 0);
+                query.bindValue(":datum", item ? item->text() : QVariant());
+                item = _model->item(row, 1);
+                query.bindValue(":ringnr", item ? item->text() : QVariant());
+                item = _model->item(row, 2);
+                query.bindValue(":farbe", item ? item->text() : QVariant());
+                item = _model->item(row, 3);
+                query.bindValue(":anzahl", item ? item->text().toInt() : QVariant());
+                item = _model->item(row, 4);
+                query.bindValue(":gewicht", item ? item->text().toInt() : QVariant());
+            if (!query.exec())
+            {
+                QMessageBox::critical(this, tr("Fehler"), _db.lastError().text());
+                return;
+            }
+            _model->setData(_model->index(row, 0), false, IsNewRole);
         }
     }
+    QMessageBox::information(this, tr("Erfolg"), tr("Neue Daten erfolgreich gespeichert"));
+    loadData();
 }
 
 void Frmlegedaten::on_btnLegestarten_clicked()
@@ -93,6 +107,7 @@ void Frmlegedaten::on_btnLegestarten_clicked()
     {
         QMessageBox::information(this, tr("Info"), tr("Legemessung gestartet, alte Daten gelöscht."));
     }
+    loadData();
 }
 
 void Frmlegedaten::on_btnLegeSchliessen_clicked()

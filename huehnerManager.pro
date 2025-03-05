@@ -9,6 +9,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    dlgloginwindow.cpp \
+    frmaddmitarbeiter.cpp \
     frmlegedaten.cpp \
     frmstammdaten.cpp \
     main.cpp \
@@ -16,13 +18,17 @@ SOURCES += \
     spalshscreen.cpp
 
 HEADERS += \
+    dlgloginwindow.h \
     enums.h \
+    frmaddmitarbeiter.h \
     frmlegedaten.h \
     frmstammdaten.h \
     mainwindow.h \
     spalshscreen.h
 
 FORMS += \
+    dlgloginwindow.ui \
+    frmaddmitarbeiter.ui \
     frmlegedaten.ui \
     frmstammdaten.ui \
     mainwindow.ui \

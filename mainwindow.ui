@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>687</width>
-    <height>448</height>
+    <width>702</width>
+    <height>418</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>687</width>
+     <width>702</width>
      <height>21</height>
     </rect>
    </property>
@@ -33,12 +33,12 @@
     <addaction name="action_Stammdaten"/>
     <addaction name="actionLegeLe_istung_erfassen"/>
    </widget>
-   <widget class="QMenu" name="menu_Legeleistung">
+   <widget class="QMenu" name="menu_Anderes">
     <property name="enabled">
      <bool>true</bool>
     </property>
     <property name="title">
-     <string>&amp;Other</string>
+     <string>&amp;Anderes</string>
     </property>
     <addaction name="actionFuetterung"/>
     <addaction name="actionZucht"/>
@@ -48,8 +48,15 @@
     <addaction name="actionTierarzt"/>
     <addaction name="actionSonstiges"/>
    </widget>
+   <widget class="QMenu" name="menu_Verwaltung">
+    <property name="title">
+     <string>&amp;Verwaltung</string>
+    </property>
+    <addaction name="actionNeue_Mitarbeiter"/>
+   </widget>
    <addaction name="menu_Huehnerverwaltung"/>
-   <addaction name="menu_Legeleistung"/>
+   <addaction name="menu_Anderes"/>
+   <addaction name="menu_Verwaltung"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_Stammdaten">
@@ -116,6 +123,11 @@
    </property>
    <property name="text">
     <string>Sonstiges</string>
+   </property>
+  </action>
+  <action name="actionNeue_Mitarbeiter">
+   <property name="text">
+    <string>Neue &amp;Mitarbeiter</string>
    </property>
   </action>
  </widget>

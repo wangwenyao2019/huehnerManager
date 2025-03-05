@@ -30,10 +30,6 @@ public:
 private:
     Ui::FrmStammdaten *ui;
 
-    enum DataRole {
-        IsNewRole = Qt::UserRole + 1
-    };
-
     QStandardItemModel  *_model;
     QSqlDatabase        _db;
     QSqlQuery           *_query;
@@ -47,7 +43,6 @@ private:
     bool isRowEmpty(int row) const;
     bool validateRow(int row);
     bool saveRowToDatabase(int row, QSqlQuery &query);
-    void saveOriginalData();
     void refreshScreen();
     void loadData();
 };

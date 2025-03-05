@@ -15,16 +15,21 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    MainWindow(const QString &role, QWidget *parent = nullptr, QSqlDatabase db = QSqlDatabase());
     ~MainWindow();
 
 private slots:
     void on_action_Stammdaten_triggered();
     void on_actionLegeLe_istung_erfassen_triggered();
 
+    void on_actionNeue_Mitarbeiter_triggered();
+
 private:
     Ui::MainWindow *ui;
 
     QSqlDatabase   _db;
+    QString        role;
+
+    void setMenuState(bool userState);
 };
 #endif // MAINWINDOW_H

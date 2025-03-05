@@ -36,6 +36,21 @@ create table legedaten
                               references stammdaten(sd_ringnr)
 );
 
+CREATE TABLE admin (
+    user_id INT IDENTITY(1,1) PRIMARY KEY, 
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) NOT NULL DEFAULT 'user',
+);
+
+insert into admin (username, password, role)
+	values ('admin','admin123','admin'),
+			('mitarbeiter','mt123','user');
+
+	select * from admin
+
+drop table admin;
+
 --drop table legedaten;
 
 INSERT INTO stammdaten VALUES

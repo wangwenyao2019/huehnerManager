@@ -1,8 +1,14 @@
 <RCC>
     <qresource prefix="/img">
         <file>Image/Hühner.jpeg</file>
+        <file>Image/login.png</file>
+        <file>Image/jidan.jpg</file>
+        <file>Image/xiaoji.jpg</file>
+        <file>Image/muji.jpg</file>
     </qresource>
     <qresource prefix="/icons">
         <file>icon/chick.png</file>
+        <file>icon/eyes-hidden.png</file>
+        <file>icon/eyes-open.png</file>
     </qresource>
 </RCC>

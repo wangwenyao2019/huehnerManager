@@ -6,7 +6,7 @@
 #include <QStandardItemModel>
 #include <QSqlQuery>
 
-// #include "enums.h"
+#include "enums.h"
 
 namespace Ui {
 class Frmlegedaten;

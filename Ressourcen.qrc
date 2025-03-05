@@ -10,5 +10,6 @@
         <file>icon/chick.png</file>
         <file>icon/eyes-hidden.png</file>
         <file>icon/eyes-open.png</file>
+        <file>icon/conference.png</file>
     </qresource>
 </RCC>

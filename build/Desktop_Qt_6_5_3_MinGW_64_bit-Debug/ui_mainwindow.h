@@ -12,6 +12,8 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -34,6 +36,11 @@ public:
     QAction *actionSonstiges;
     QAction *actionNeue_Mitarbeiter;
     QWidget *centralwidget;
+    QWidget *layoutWidget;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_6;
+    QLabel *label_5;
+    QLabel *label_2;
     QMenuBar *menubar;
     QMenu *menu_Huehnerverwaltung;
     QMenu *menu_Anderes;
@@ -45,7 +52,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->setEnabled(true);
-        MainWindow->resize(702, 418);
+        MainWindow->resize(839, 375);
         action_Stammdaten = new QAction(MainWindow);
         action_Stammdaten->setObjectName("action_Stammdaten");
         actionLegeLe_istung_erfassen = new QAction(MainWindow);
@@ -75,10 +82,40 @@ public:
         actionNeue_Mitarbeiter->setObjectName("actionNeue_Mitarbeiter");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(40, 50, 714, 263));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget);
+        horizontalLayout_6->setObjectName("horizontalLayout_6");
+        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
+        label_6 = new QLabel(layoutWidget);
+        label_6->setObjectName("label_6");
+        label_6->setAutoFillBackground(false);
+        label_6->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/jidan.jpg")));
+        label_6->setScaledContents(true);
+
+        horizontalLayout_6->addWidget(label_6);
+
+        label_5 = new QLabel(layoutWidget);
+        label_5->setObjectName("label_5");
+        label_5->setAutoFillBackground(false);
+        label_5->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/xiaoji.jpg")));
+        label_5->setScaledContents(true);
+
+        horizontalLayout_6->addWidget(label_5);
+
+        label_2 = new QLabel(layoutWidget);
+        label_2->setObjectName("label_2");
+        label_2->setAutoFillBackground(false);
+        label_2->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/muji.jpg")));
+        label_2->setScaledContents(true);
+
+        horizontalLayout_6->addWidget(label_2);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 702, 21));
+        menubar->setGeometry(QRect(0, 0, 839, 21));
         menu_Huehnerverwaltung = new QMenu(menubar);
         menu_Huehnerverwaltung->setObjectName("menu_Huehnerverwaltung");
         menu_Anderes = new QMenu(menubar);
@@ -123,6 +160,9 @@ public:
         actionTierarzt->setText(QCoreApplication::translate("MainWindow", "Tierarzt", nullptr));
         actionSonstiges->setText(QCoreApplication::translate("MainWindow", "Sonstiges", nullptr));
         actionNeue_Mitarbeiter->setText(QCoreApplication::translate("MainWindow", "Neue &Mitarbeiter", nullptr));
+        label_6->setText(QString());
+        label_5->setText(QString());
+        label_2->setText(QString());
         menu_Huehnerverwaltung->setTitle(QCoreApplication::translate("MainWindow", "&H\303\274hnerverwaltung", nullptr));
         menu_Anderes->setTitle(QCoreApplication::translate("MainWindow", "&Anderes", nullptr));
         menu_Verwaltung->setTitle(QCoreApplication::translate("MainWindow", "&Verwaltung", nullptr));

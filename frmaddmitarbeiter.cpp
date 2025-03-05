@@ -100,8 +100,6 @@ void FrmAddMitarbeiter::on_btnEntfernen_clicked()
             QMessageBox::critical(this, tr("Fehler"), query.lastError().text());
         }
     loadData();
-    qDebug() << "Selected rows count:" << selectedRows.count();
-    qDebug() << "User ID to delete:" << idItem->text();
 }
 
 void FrmAddMitarbeiter::loadData()

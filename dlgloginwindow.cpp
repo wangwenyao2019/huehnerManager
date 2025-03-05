@@ -12,6 +12,8 @@ DlgLoginWindow::DlgLoginWindow(QWidget *parent)
     ui->setupUi(this);
 
     setWindowTitle(tr("Login Fenster"));
+    setWindowIcon(QIcon(":/img/Image/login.png"));
+    setFixedSize(460, 300);
     ui->lePassword->setEchoMode(QLineEdit::Password);
     ui->btnPwShow->setIcon(QIcon(":/icons/icon/eyes-hidden.png"));
 }
@@ -73,7 +75,15 @@ bool DlgLoginWindow::validateLogin(const QString &username, const QString &passw
 
 void DlgLoginWindow::on_btnPwShow_clicked()
 {
-    ui->btnPwShow->setIcon(QIcon(":/icons/icon/eyes-open.png"));
-    ui->lePassword->setEchoMode(QLineEdit::Normal);
+    if(ui->lePassword->echoMode() == QLineEdit::Password)
+    {
+        ui->btnPwShow ->setIcon(QIcon(":/icons/icon/eyes-open.png"));
+        ui->lePassword->setEchoMode(QLineEdit::Normal);
+    }
+    else
+    {
+        ui->btnPwShow ->setIcon(QIcon(":/icons/icon/eyes-hidden.png"));
+        ui->lePassword->setEchoMode(QLineEdit::Password);
+    }
 }
 

@@ -111,9 +111,6 @@ void FrmStammdaten::on_btnSpeichern_2_clicked()
     } else {
         QSqlDatabase::database().rollback();
     }
-
-    qDebug() << "r115-Executing SQL:" << query.lastQuery();
-    qDebug() << "r116-Bound values:" << query.boundValues();
     loadData();
 }
 
@@ -176,7 +173,7 @@ bool FrmStammdaten::saveRowToDatabase(int row, QSqlQuery &query)
     return true;
 }
 
-// Wenn btnSpeichern klicket, loeschen leere row
+// Entfernen leerer Zeilen
 void FrmStammdaten::removeEmptyRows()
 {
     for(int row = _model->rowCount()-1; row >= 0; row--) {

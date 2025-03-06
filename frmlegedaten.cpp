@@ -60,7 +60,7 @@ void Frmlegedaten::on_btnNeu_clicked()
 {
     int row = _model->rowCount();
     _model->insertRow(row);
-    _model->setItem(row, 0, new QStandardItem(QDate::currentDate().toString("yyyy-MM-dd")));
+    _model->setItem(row, 0, new QStandardItem(QDate::currentDate().toString("yyyy-MM-dd")));        //akt. Datum
     _model->setData(_model->index(row, 0), true, IsNewRole);
     ui->tvLegedaten->edit(_model->index(row, 1));
 }

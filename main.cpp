@@ -35,12 +35,12 @@ int main(int argc, char *argv[])
 
     MainWindow w(loginWindow->getRole(), nullptr, db);
 
-    // spalshScreen *spalshscreen = new spalshScreen();
-    // spalshscreen->show();
+    spalshScreen *spalshscreen = new spalshScreen();
+    spalshscreen->show();
 
-    // QTimer::singleShot(3000, spalshscreen, SLOT(close()));
-    // QTimer::singleShot(3000, &w, SLOT(show()));
+    QTimer::singleShot(3000, spalshscreen, SLOT(close()));
+    QTimer::singleShot(3000, &w, SLOT(show()));
 
-    w.show();
+    // w.show();        //for test
     return a.exec();
 }

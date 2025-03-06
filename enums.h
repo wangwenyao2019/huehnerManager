@@ -4,7 +4,7 @@
 #include <QObject>
 
 enum DataRole {
-    IsNewRole = Qt::UserRole + 1
+    IsNewRole = Qt::UserRole + 1    // Enum-Wert für eine neue Rolle, basiert auf Qt::UserRole(defaut wert ist 32)
 };
 
 #endif // ENUMS_H

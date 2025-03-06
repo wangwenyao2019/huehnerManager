@@ -1,4 +1,5 @@
-QT       += core gui sql
+QT       += core gui sql \
+            printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -41,3 +42,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Ressourcen.qrc
+
+TRANSLATIONS += \
+    translate_de.ts
+    traslate_en.ts
+    traslate_zh_CN.ts
+

@@ -13,7 +13,7 @@ DlgLoginWindow::DlgLoginWindow(QWidget *parent)
 
     setWindowTitle(tr("Login Fenster"));
     setWindowIcon(QIcon(":/img/Image/login.png"));
-    setFixedSize(460, 300);
+    setFixedSize(460, 320);
     ui->lePassword->setEchoMode(QLineEdit::Password);
     ui->btnPwShow->setIcon(QIcon(":/icons/icon/eyes-hidden.png"));
 }

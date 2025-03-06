@@ -18,8 +18,8 @@ FrmAddMitarbeiter::FrmAddMitarbeiter(QWidget *parent, QSqlDatabase &db)
     _model = new QStandardItemModel(0, 4, this);
     _model->setHorizontalHeaderItem(0, new QStandardItem(tr("Benutzername")));
     _model->setHorizontalHeaderItem(1, new QStandardItem(tr("Password")));
-    _model->setHorizontalHeaderItem(2, new QStandardItem(tr("Role")));
-    _model->setHorizontalHeaderItem(3, new QStandardItem(tr("User ID")));
+    _model->setHorizontalHeaderItem(2, new QStandardItem(tr("Rolle")));
+    _model->setHorizontalHeaderItem(3, new QStandardItem(tr("Benutzer ID")));
 
     ui->tvMitarbeiter->setModel(_model);
     ui->tvMitarbeiter->setEditTriggers(QAbstractItemView::DoubleClicked | QAbstractItemView::EditKeyPressed);
@@ -104,7 +104,7 @@ void FrmAddMitarbeiter::on_btnEntfernen_clicked()
 
 void FrmAddMitarbeiter::loadData()
 {
-    QSqlQuery query("SELECT user_id, username, password, role FROM admin ORDER BY user_id ASC", _db);
+    QSqlQuery query("SELECT user_id, username, password, role FROM admin ", _db);
     _model->removeRows(0, _model->rowCount());
     while (query.next())
     {

@@ -1,5 +1,6 @@
 #include "frmstammdaten.h"
 #include "ui_frmstammdaten.h"
+#include "enums.h"
 
 #include <QMessageBox>
 #include <QDebug>
@@ -80,8 +81,6 @@ void FrmStammdaten::on_btnNeu_2_clicked()
     _model->insertRow(row);
     _model->setData(_model->index(row, 0), true, IsNewRole);
     ui->tvStammdaten->edit(_model->index(row, 0));
-
-    _modus = Modus::newMode;
 }
 
 // /////////////////////////////////////////////////////////////////Speichern Daten
@@ -92,7 +91,7 @@ void FrmStammdaten::on_btnSpeichern_2_clicked()
     QSqlQuery query(_db);
 
     for(int row = 0; row < _model->rowCount(); row++) {
-        if(isRowEmpty(row)) continue; // wenn row leer ist, springen
+        if(isRowEmpty(row)) continue;
         if(!_model->data(_model->index(row, 0), IsNewRole).toBool()) {
             continue;
         }
@@ -190,7 +189,6 @@ void FrmStammdaten::removeEmptyRows()
 void FrmStammdaten::on_btnAbbrechen_2_clicked()
 {
     loadData();
-    _modus = Modus::noMode;
 }
 
 void FrmStammdaten::on_btnEntfernen_2_clicked()

@@ -6,8 +6,6 @@
 #include <QStandardItemModel>
 #include <QSqlQuery>
 
-#include "enums.h"
-
 namespace Ui {
 class Frmlegedaten;
 }
@@ -32,7 +30,6 @@ private:
     QStandardItemModel  *_model;
     QSqlDatabase        _db;
     QSqlQuery           *_query;
-    // Modus               _modus;
 
     void loadData();
 };

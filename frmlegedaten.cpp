@@ -1,5 +1,6 @@
 #include "frmlegedaten.h"
 #include "ui_frmlegedaten.h"
+#include "enums.h"
 
 #include <QMessageBox>
 #include <QDate>

@@ -53,6 +53,7 @@ public:
     QPushButton *btnAbbrechen;
     QSpacerItem *horizontalSpacer_7;
     QLabel *label_4;
+    QSpacerItem *horizontalSpacer_13;
 
     void setupUi(QDialog *DlgLoginWindow)
     {
@@ -194,7 +195,7 @@ public:
         verticalLayout->addLayout(horizontalLayout_4);
 
 
-        gridLayout->addLayout(verticalLayout, 1, 0, 1, 1);
+        gridLayout->addLayout(verticalLayout, 2, 0, 1, 1);
 
         label_4 = new QLabel(DlgLoginWindow);
         label_4->setObjectName("label_4");
@@ -205,7 +206,11 @@ public:
         label_4->setFont(font1);
         label_4->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_4, 2, 0, 1, 1);
+        gridLayout->addWidget(label_4, 3, 0, 1, 1);
+
+        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_13, 1, 0, 1, 1);
 
 #if QT_CONFIG(shortcut)
         lblUsername->setBuddy(leUsername);

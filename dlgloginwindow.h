@@ -24,7 +24,6 @@ public:
 private slots:
     void on_btnAnmelden_clicked();
     void on_btnAbbrechen_clicked();
-
     void on_btnPwShow_clicked();
 
 private:

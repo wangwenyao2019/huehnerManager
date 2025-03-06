@@ -356,6 +356,7 @@ Makefile: ../../huehnerManager.pro ../../../../Qt/6.5.3/mingw_64/mkspecs/win32-g
 		../../../../Qt/6.5.3/mingw_64/mkspecs/features/yacc.prf \
 		../../../../Qt/6.5.3/mingw_64/mkspecs/features/lex.prf \
 		../../huehnerManager.pro \
+		../../../../Qt/6.5.3/mingw_64/lib/Qt6PrintSupport.prl \
 		../../../../Qt/6.5.3/mingw_64/lib/Qt6Widgets.prl \
 		../../../../Qt/6.5.3/mingw_64/lib/Qt6Gui.prl \
 		../../../../Qt/6.5.3/mingw_64/lib/Qt6Sql.prl \
@@ -650,6 +651,7 @@ Makefile: ../../huehnerManager.pro ../../../../Qt/6.5.3/mingw_64/mkspecs/win32-g
 ../../../../Qt/6.5.3/mingw_64/mkspecs/features/yacc.prf:
 ../../../../Qt/6.5.3/mingw_64/mkspecs/features/lex.prf:
 ../../huehnerManager.pro:
+../../../../Qt/6.5.3/mingw_64/lib/Qt6PrintSupport.prl:
 ../../../../Qt/6.5.3/mingw_64/lib/Qt6Widgets.prl:
 ../../../../Qt/6.5.3/mingw_64/lib/Qt6Gui.prl:
 ../../../../Qt/6.5.3/mingw_64/lib/Qt6Sql.prl:

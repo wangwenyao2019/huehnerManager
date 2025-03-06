@@ -6,7 +6,6 @@
 #include <QStandardItemModel>
 #include <QSqlQuery>
 
-
 namespace Ui {
 class FrmAddMitarbeiter;
 }

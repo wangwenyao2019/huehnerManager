@@ -11,5 +11,9 @@
         <file>icon/eyes-hidden.png</file>
         <file>icon/eyes-open.png</file>
         <file>icon/conference.png</file>
+        <file>icon/china.png</file>
+        <file>icon/english9.png</file>
+        <file>icon/german9.png</file>
+        <file>icon/user-groups.png</file>
     </qresource>
 </RCC>

@@ -6,8 +6,6 @@
 #include <QSqlQuery>
 #include <QStandardItemModel>
 
-#include "enums.h"
-
 namespace Ui {
 class FrmStammdaten;
 }
@@ -27,13 +25,14 @@ public:
     explicit FrmStammdaten(QWidget *parent, QSqlDatabase &db);
     ~FrmStammdaten();
 
+    QStandardItemModel* getModel() const { return _model; }
+
 private:
     Ui::FrmStammdaten *ui;
 
     QStandardItemModel  *_model;
     QSqlDatabase        _db;
     QSqlQuery           *_query;
-    Modus               _modus;
 
     QList<QStringList> _originalData;
 

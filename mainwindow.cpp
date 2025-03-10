@@ -29,7 +29,7 @@ MainWindow::MainWindow(const QString &role, QWidget *parent, QSqlDatabase db)
         QApplication::quit();
         return;
     }
-    qDebug() << "DB Available in MainWindow";
+    qDebug() << "DB benutzbar bei MainWindow";
 
     QPixmap pix(":/icons/icon/chick.png");
     setWindowIcon(pix);
@@ -120,6 +120,5 @@ void MainWindow::on_action_Druck_triggered()
                          doc.print(printer);
                      });
      preview.exec();
-
 }
 

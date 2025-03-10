@@ -29,17 +29,17 @@ int main(int argc, char *argv[])
 
     if(loginWindow->exec() != QDialog::Accepted || !loginWindow->isLoggedIn())
     {
-        delete loginWindow;
+        delete loginWindow;         // Löscht das Login-Fenster bei Abbruch oder Fehler
         return 0;
     }
 
-    MainWindow w(loginWindow->getRole(), nullptr, db);
+    MainWindow w(loginWindow->getRole(), nullptr, db);      // Erstellt das Hauptfenster mit Rolle und Datenbank
 
     spalshScreen *spalshscreen = new spalshScreen();
     spalshscreen->show();
 
     QTimer::singleShot(3000, spalshscreen, SLOT(close()));
-    QTimer::singleShot(3000, &w, SLOT(show()));
+    QTimer::singleShot(3000, &w, SLOT(showMaximized()));
 
     // w.show();        //for test
     return a.exec();

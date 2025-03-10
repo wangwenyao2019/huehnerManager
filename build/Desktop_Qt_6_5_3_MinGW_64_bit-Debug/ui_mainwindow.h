@@ -12,11 +12,13 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -40,11 +42,15 @@ public:
     QAction *action_Stammdaten_2;
     QAction *action_Druck;
     QWidget *centralwidget;
-    QWidget *widget;
+    QGridLayout *gridLayout;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer;
     QHBoxLayout *horizontalLayout;
     QLabel *label_6;
     QLabel *label_5;
     QLabel *label_2;
+    QSpacerItem *horizontalSpacer_2;
+    QSpacerItem *verticalSpacer_2;
     QMenuBar *menubar;
     QMenu *menu_Huehnerverwaltung;
     QMenu *menu_Anderes;
@@ -104,13 +110,19 @@ public:
         action_Druck->setObjectName("action_Druck");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
-        widget = new QWidget(centralwidget);
-        widget->setObjectName("widget");
-        widget->setGeometry(QRect(360, 330, 714, 263));
-        horizontalLayout = new QHBoxLayout(widget);
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName("gridLayout");
+        verticalSpacer = new QSpacerItem(20, 306, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 0, 2, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(403, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 0, 1, 1);
+
+        horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label_6 = new QLabel(widget);
+        label_6 = new QLabel(centralwidget);
         label_6->setObjectName("label_6");
         label_6->setAutoFillBackground(false);
         label_6->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/jidan.jpg")));
@@ -119,7 +131,7 @@ public:
 
         horizontalLayout->addWidget(label_6);
 
-        label_5 = new QLabel(widget);
+        label_5 = new QLabel(centralwidget);
         label_5->setObjectName("label_5");
         label_5->setAutoFillBackground(false);
         label_5->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/xiaoji.jpg")));
@@ -128,7 +140,7 @@ public:
 
         horizontalLayout->addWidget(label_5);
 
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
         label_2->setAutoFillBackground(false);
         label_2->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/muji.jpg")));
@@ -136,6 +148,17 @@ public:
         label_2->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label_2);
+
+
+        gridLayout->addLayout(horizontalLayout, 1, 1, 2, 2);
+
+        horizontalSpacer_2 = new QSpacerItem(403, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 2, 3, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 306, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_2, 3, 1, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -148,6 +171,7 @@ public:
         menu_Anderes->setEnabled(true);
         menu_Sprach = new QMenu(menu_Anderes);
         menu_Sprach->setObjectName("menu_Sprach");
+        menu_Sprach->setEnabled(false);
         menu_Verwaltung = new QMenu(menubar);
         menu_Verwaltung->setObjectName("menu_Verwaltung");
         MainWindow->setMenuBar(menubar);
@@ -204,7 +228,7 @@ public:
         menu_Huehnerverwaltung->setTitle(QCoreApplication::translate("MainWindow", "&H\303\274hnerverwaltung", nullptr));
         menu_Anderes->setTitle(QCoreApplication::translate("MainWindow", "&Anderes", nullptr));
         menu_Sprach->setTitle(QCoreApplication::translate("MainWindow", "&Sprach", nullptr));
-        menu_Verwaltung->setTitle(QCoreApplication::translate("MainWindow", "&Verwaltung", nullptr));
+        menu_Verwaltung->setTitle(QCoreApplication::translate("MainWindow", "&Mitarbeiter Verwaltung", nullptr));
     } // retranslateUi
 
 };

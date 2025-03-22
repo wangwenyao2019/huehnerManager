@@ -185,7 +185,8 @@ void FrmStammdaten::removeEmptyRows()
 
 void FrmStammdaten::on_btnAbbrechen_2_clicked()
 {
-    // loadData();// fehler
+    loadData();
+    removeEmptyRows();
 }
 
 void FrmStammdaten::on_btnEntfernen_2_clicked()

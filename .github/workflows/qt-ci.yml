@@ -28,15 +28,15 @@ jobs:
           shell: pwsh
           run: |
             Write-Output "QT_PATH: $env:Qt/6.5.3/msvc2019_64"
-            Get-ChildItem -Path "$env:QT_PATH\bin"
+            Get-ChildItem -Path "$env:Qt/6.5.3/msvc2019_64\bin"
 
         - name: Set Qt Environment
           if: runner.os == 'Windows'
           shell: pwsh
           run: |
             Set-ExecutionPolicy Bypass -Scope Process -Force
-            & "$env:QT_PATH\bin\qtenv2.bat"
-            echo "QT_DIR=$env:QT_PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            & "$env:Qt/6.5.3/msvc2019_64\bin\qtenv2.bat"
+            echo "QT_DIR=$env:Qt/6.5.3/msvc2019_64" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
         - name: Configure Project
           shell: bash

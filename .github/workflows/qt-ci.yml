@@ -27,7 +27,7 @@ jobs:
         - name: Verify Qt Installation
           shell: pwsh
           run: |
-            Write-Output "QT_PATH: $env:QT_PATH"
+            Write-Output "QT_PATH: $env:Qt/6.5.3/msvc2019_64"
             Get-ChildItem -Path "$env:QT_PATH\bin"
 
         - name: Set Qt Environment

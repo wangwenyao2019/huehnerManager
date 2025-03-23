@@ -26,8 +26,8 @@ jobs:
           if: runner.os == 'Windows'
           shell: cmd
           run: |
-            call "%QT_PATH%\bin\qtenv2.bat"
-            echo "QT_DIR=%QT_PATH%" >> %GITHUB_ENV
+            call "D:\Qt\6.5.3\msvc2019_64\bin\qtenv2.bat"
+            echo "QT_DIR=D:\Qt\6.5.3\msvc2019_64" >> %GITHUB_ENV
 
         - name: Configure Project
           shell: bash

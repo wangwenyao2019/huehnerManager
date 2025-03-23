@@ -20,7 +20,9 @@ jobs:
           uses: jurplel/install-qt-action@v3
           with:
             version: 6.5.3
-            arch: win64_msvc2019_64  # 直接指定架构，无需映射
+            arch:  win64_msvc2019_64  # 直接指定架构，无需映射
+        env:
+            QT_PATH: ${{ github.workspace }}/Qt/6.5.3/msvc2019_64
 
         - name: Set Qt Environment
           if: runner.os == 'Windows'

@@ -26,10 +26,10 @@ jobs:
 
         - name: Set Qt Environment
           if: runner.os == 'Windows'
-          shell: cmd
+          shell: pwsh
           run: |
-            call "%QT_PATH%\bin\qtenv2.bat"
-            echo "QT_DIR=%QT_PATH%" >> %GITHUB_ENV
+            & "$env:QT_PATH\bin\qtenv2.bat"
+            echo "QT_DIR=$env:QT_PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
         - name: Configure Project
           shell: bash

@@ -1,0 +1,64 @@
+name: Qt CI/CD
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+huenerManager:
+    build:
+        strategy:
+            matrix:
+                os: [windows-latest]
+        run-on: ${{ matrix.os }}
+        steps:
+            -name: Checkout code
+            -uses: actions/checkout@4
+
+            -name: Install Qt
+            -uses: jurplel/install-at-actions@3
+             with:
+                 version: 6.5.3
+             arch:
+                 windows-latest: win64_msvc2019_64
+            # 设置 Qt 环境变量
+            -name: Set Qt Environment
+             if: runner.os == 'Windows'
+             shell: cmd
+             run: |
+                 call "%QT_PATH%\bin|qtenv2.bat"
+                 echo "QT_DIR=%QT_PATH%" >> %GITHUB_ENV
+            # 生成构建目录
+            -name: Configure Project
+             shell: bash
+             run: |
+                mkdir build
+                cd build
+                qmake ..
+
+            # 编译项目
+            -name: Build Project
+             shell: bash
+             run: |
+                cd build
+                nmake
+
+            #运行测试
+            # -name: Run Tests
+            #  shell: bash
+            #  run: |
+            #     cd build
+                # ./YourQtProjectTest
+
+.            # 打包发布产物
+            # - name: Package Artifacts
+            #   if: runner.os == 'Windows' && github.ref == 'refs/heads/main'
+            #   run: |
+            #     mkdir release
+            #     cp build/release/YourQtProject.exe release/
+            #     7z a YourQtProject-Windows.zip ./release/*
+            #   # 上传到 GitHub Releases
+            #   uses: softprops/action-gh-release@v1
+            #   with:
+            #     files: YourQtProject-Windows.zip

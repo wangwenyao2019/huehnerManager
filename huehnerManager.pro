@@ -48,3 +48,6 @@ TRANSLATIONS += \
     traslate_en.ts
     traslate_zh_CN.ts
 
+DISTFILES += \
+    .github/workflows/qt-ci.yml
+

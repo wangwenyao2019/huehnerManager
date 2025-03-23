@@ -11,36 +11,36 @@ huenerManager:
         strategy:
             matrix:
                 os: [windows-latest]
-        run-on: ${{ matrix.os }}
+        runs-on: ${{ matrix.os }}
         steps:
-            -name: Checkout code
-            -uses: actions/checkout@v4
+            - name: Checkout code
+            - uses: actions/checkout@v4
 
-            -name: Install Qt
-            -uses: jurplel/install-qt-action@v3
-             with:
-                 version: 6.5.3
-             arch:
-                 windows-latest: win64_msvc2019_64
+            - name: Install Qt
+            - uses: jurplel/install-qt-action@v3
+              with:
+                version: 6.5.3
+              arch:
+                windows-latest: win64_msvc2019_64
             # 设置 Qt 环境变量
-            -name: Set Qt Environment
-             if: runner.os == 'Windows'
-             shell: cmd
-             run: |
-                 call "%QT_PATH%\bin|qtenv2.bat"
-                 echo "QT_DIR=%QT_PATH%" >> %GITHUB_ENV
+            - name: Set Qt Environment
+              if: runner.os == 'Windows'
+              shell: cmd
+              run: |
+                call "%QT_PATH%\bin\qtenv2.bat"
+                echo "QT_DIR=%QT_PATH%" >> %GITHUB_ENV
             # 生成构建目录
-            -name: Configure Project
-             shell: bash
-             run: |
+            - name: Configure Project
+              shell: bash
+              run: |
                 mkdir build
                 cd build
                 qmake ..
 
             # 编译项目
-            -name: Build Project
-             shell: bash
-             run: |
+            - name: Build Project
+              shell: bash
+              run: |
                 cd build
                 nmake
 

@@ -45,20 +45,19 @@ huenerManager:
                 nmake
 
             #运行测试
-            # -name: Run Tests
-            #  shell: bash
-            #  run: |
-            #     cd build
-                # ./YourQtProjectTest
+            - name: Run Tests
+              shell: bash
+              run: |
+                 cd build
+                 ./huehnerManager
 
-.            # 打包发布产物
-            # - name: Package Artifacts
-            #   if: runner.os == 'Windows' && github.ref == 'refs/heads/main'
-            #   run: |
-            #     mkdir release
-            #     cp build/release/YourQtProject.exe release/
-            #     7z a YourQtProject-Windows.zip ./release/*
-            #   # 上传到 GitHub Releases
-            #   uses: softprops/action-gh-release@v1
-            #   with:
-            #     files: YourQtProject-Windows.zip
+.            # 打包并上传到 Releases（已启用）
+            - name: Package Artifacts
+              if: runner.os == 'Windows' && github.ref == 'refs/heads/main'
+              run: |
+                mkdir release
+                cp build/release/YourQtProject.exe release/
+                7z a YourQtProject-Windows.zip ./release/*
+              uses: softprops/action-gh-release@v1
+              with:
+                files: huehnerManager-Windows.zip

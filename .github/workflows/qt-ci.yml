@@ -51,13 +51,17 @@ huenerManager:
                  cd build
                  ./huehnerManager
 
-.           # 打包并上传到 Releases（已启用）
+.           # 步骤 1：打包产物
             - name: Package Artifacts
               if: runner.os == 'Windows' && github.ref == 'refs/heads/main'
               run: |
                 mkdir release
                 cp build/release/huehnerManager.exe release/
                 7z a huehnerManager-Windows.zip ./release/*
+
+            # 步骤 2：上传到 GitHub Releases
+            - name: Upload Release
+              if: runner.os == 'Windows' && github.ref == 'refs/heads/main'
               uses: softprops/action-gh-release@v1
               with:
                 files: huehnerManager-Windows.zip

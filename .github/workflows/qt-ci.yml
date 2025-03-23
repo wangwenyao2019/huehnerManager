@@ -23,7 +23,6 @@ jobs:
             arch:  win64_msvc2019_64
           env:
             QT_PATH: ${{ github.workspace }}/Qt/6.5.3/msvc2019_64
-          run: echo "QT_PATH=$QT_PATH" >> $GITHUB_ENV
 
         - name: Verify Qt Installation
           shell: pwsh

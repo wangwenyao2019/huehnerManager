@@ -14,7 +14,7 @@ huenerManager:
         run-on: ${{ matrix.os }}
         steps:
             -name: Checkout code
-            -uses: actions/checkout@4
+            -uses: actions/checkout@v4
 
             -name: Install Qt
             -uses: jurplel/install-qt-action@v3

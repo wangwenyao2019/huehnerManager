@@ -19,7 +19,7 @@ huenerManager:
             -name: Install Qt
             -uses: jurplel/install-at-actions@3
              with:
-                 version: 6.5.3
+                 version: 6.5.0
              arch:
                  windows-latest: win64_msvc2019_64
             # 设置 Qt 环境变量

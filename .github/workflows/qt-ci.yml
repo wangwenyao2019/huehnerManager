@@ -23,13 +23,7 @@ jobs:
             arch:  win64_msvc2019_64
           env:
             QT_PATH: ${{ github.workspace }}/Qt/6.5.3/msvc2019_64
-
-        - name: Verify Qt Installation
-          shell: pwsh
-          run: |
-            Write-Output "QT_PATH: $env:Qt/6.5.3/msvc2019_64"
-            Get-ChildItem -Path "$env:Qt/6.5.3/msvc2019_64\bin"
-
+            
         - name: Set Qt Environment
           if: runner.os == 'Windows'
           shell: pwsh

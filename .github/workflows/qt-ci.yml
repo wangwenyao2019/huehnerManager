@@ -29,8 +29,8 @@ jobs:
           shell: pwsh
           run: |
             Set-ExecutionPolicy Bypass -Scope Process -Force
-            & "$env:Qt/6.5.3/msvc2019_64\bin\qtenv2.bat"
-            echo "QT_DIR=$env:Qt/6.5.3/msvc2019_64" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            cmd /c "$env:Qt_PATH/6.5.3/msvc2019_64\bin\qtenv2.bat"
+            echo "QT_DIR=$env:Qt_PATH/6.5.3/msvc2019_64" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
         - name: Configure Project
           shell: bash

@@ -23,6 +23,17 @@ jobs:
             arch:  win64_msvc2019_64
           env:
             QT_PATH: ${{ github.workspace }}/Qt
+
+        - name: Check Qt Installation
+          shell: pwsh
+          run: |
+            Write-Output "QT_PATH: $env:QT_PATH"
+            if (Test-Path "$env:QT_PATH\bin\qtenv2.bat") {
+              Write-Output "qtenv2.bat found."
+            } else {
+              Write-Error "qtenv2.bat missing!"
+              exit 1
+            }
             
         - name: Set Qt Environment
           if: runner.os == 'Windows'

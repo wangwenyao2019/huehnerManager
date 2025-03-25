@@ -41,6 +41,15 @@ jobs:
             cd build
             # 使用完整路径的qmake
             & "D:\Qt\6.5.3\msvc2019_64\bin\qmake.exe" ..
+            
+        - name: Prepare Build Directory
+          shell: pwsh
+          run: |
+            # 强制清理和重新创建build目录
+            if (Test-Path -Path "${{ github.workspace }}\build") {
+              Remove-Item -Path "${{ github.workspace }}\build" -Recurse -Force
+            }
+            New-Item -ItemType Directory -Path "${{ github.workspace }}\build"
         
         - name: Build Project
           shell: pwsh

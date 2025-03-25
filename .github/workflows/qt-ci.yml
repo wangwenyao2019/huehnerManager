@@ -21,7 +21,7 @@ jobs:
           with:
             version: 6.5.3
             arch:  win64_msvc2019_64
-            dir: D:\Qt\6.5.3\msvc2019_64
+            # dir: D:\Qt\6.5.3\msvc2019_64
 
         - name: Set up Visual Studio environment
           uses: microsoft/setup-msbuild@v1.3.1
@@ -36,9 +36,7 @@ jobs:
         - name: Configure Project
           shell: pwsh
           run: |
-            cd ${{ github.workspace }}
-            mkdir build
-            cd build
+            cd ${{ github.workspace }}\build
             # 使用完整路径的qmake
             & "D:\Qt\6.5.3\msvc2019_64\bin\qmake.exe" ..
             
@@ -61,7 +59,7 @@ jobs:
         - name: Run Tests
           shell: pwsh
           run: |
-            cd ${{ github.workspace }}/build
+            cd ${{ github.workspace }}/build/release
             # 运行可执行文件（请确认实际的可执行文件名）
             .\release\huehnerManager.exe
         

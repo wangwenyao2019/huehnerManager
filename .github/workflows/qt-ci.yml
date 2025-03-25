@@ -21,57 +21,49 @@ jobs:
           with:
             version: 6.5.3
             arch:  win64_msvc2019_64
-          env:
-            QT_PATH: ${{ github.workspace }}/Qt
+            dir: D:\Qt\6.5.3\msvc2019_64
 
-        - name: Check Qt Installation
+        - name: Set up Visual Studio environment
+          uses: microsoft/setup-msbuild@v1.3.1
+        
+        - name: Configure Qt Environment
           shell: pwsh
           run: |
-            Write-Output "QT_PATH: $env:QT_PATH"
-            if (Test-Path "$env:QT_PATH\bin\qtenv2.bat") {
-              Write-Output "qtenv2.bat found."
-            } else {
-              Write-Error "qtenv2.bat missing!"
-              exit 1
-            }
-            
-        - name: Set Qt Environment
-          if: runner.os == 'Windows'
-          shell: pwsh
-          run: |
-            Set-ExecutionPolicy Bypass -Scope Process -Force
-            & "$env:QT_PATH\bin\qtenv2.bat"
-            echo "QTDIR=$env:QT_PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-            echo "PATH=$env:QT_PATH\bin;$env:PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            # Set Qt environment variables
+            echo "QTDIR=D:\Qt\6.5.3\msvc2019_64" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            echo "PATH=D:\Qt\6.5.3\msvc2019_64\bin;$env:PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
             
         - name: Configure Project
-          shell: bash
+          shell: pwsh
           run: |
+            cd huehnerManager
             mkdir build
             cd build
-            qmake ..
-
+            # 使用完整路径的qmake
+            & "D:\Qt\6.5.3\msvc2019_64\bin\qmake.exe" ..
+        
         - name: Build Project
-          shell: bash
+          shell: pwsh
           run: |
-            cd build
-            nmake
-
+            cd huehnerManager/build
+            # 使用nmake编译
+            & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\nmake.exe"
+        
         - name: Run Tests
-          shell: bash
+          shell: pwsh
           run: |
-            cd build
-            ./huehnerManager
-
-        # 步骤 1：打包产物
+            cd huehnerManager/build
+            # 运行可执行文件（请确认实际的可执行文件名）
+            .\release\huehnerManager.exe
+        
         - name: Package Artifacts
           if: runner.os == 'Windows' && github.ref == 'refs/heads/main'
+          shell: pwsh
           run: |
             mkdir release
-            cp build/release/huehnerManager.exe release/
-            7z a huehnerManager-Windows.zip ./release/*
-
-        # 步骤 2：上传到 GitHub Releases
+            Copy-Item "huehnerManager/build/release/huehnerManager.exe" -Destination "release/"
+            Compress-Archive -Path release/* -DestinationPath huehnerManager-Windows.zip
+        
         - name: Upload Release
           if: runner.os == 'Windows' && github.ref == 'refs/heads/main'
           uses: softprops/action-gh-release@v1

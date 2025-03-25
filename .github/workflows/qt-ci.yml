@@ -36,7 +36,7 @@ jobs:
         - name: Configure Project
           shell: pwsh
           run: |
-            cd huehnerManager
+            cd ${{ github.workspace }}/huehnerManager
             mkdir build
             cd build
             # 使用完整路径的qmake
@@ -45,14 +45,14 @@ jobs:
         - name: Build Project
           shell: pwsh
           run: |
-            cd huehnerManager/build
+            cd ${{ github.workspace }}/huehnerManager/build
             # 使用nmake编译
             & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\nmake.exe"
         
         - name: Run Tests
           shell: pwsh
           run: |
-            cd huehnerManager/build
+            cd ${{ github.workspace }}/huehnerManager/build
             # 运行可执行文件（请确认实际的可执行文件名）
             .\release\huehnerManager.exe
         
@@ -61,7 +61,7 @@ jobs:
           shell: pwsh
           run: |
             mkdir release
-            Copy-Item "huehnerManager/build/release/huehnerManager.exe" -Destination "release/"
+            Copy-Item "${{ github.workspace }}/huehnerManager/build/release/huehnerManager.exe" -Destination "release/"
             Compress-Archive -Path release/* -DestinationPath huehnerManager-Windows.zip
         
         - name: Upload Release
@@ -69,3 +69,4 @@ jobs:
           uses: softprops/action-gh-release@v1
           with:
             files: huehnerManager-Windows.zip
+            tag_name: v${{ github.sha }}

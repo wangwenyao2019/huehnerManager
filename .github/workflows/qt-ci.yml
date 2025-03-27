@@ -41,23 +41,18 @@ jobs:
             }
             New-Item -ItemType Directory -Path "${{ github.workspace }}/build"
             
-        - name: Configure Project
-          shell: pwsh
+        - name: Configure and Build Project
+          shell: cmd
           run: |
-            cd ${{ github.workspace }}\build
-            $qmakePath = (Get-Command qmake).Source
-            Write-Host "qmake path: $qmakePath"
-            & $qmakePath ..
-        
-        - name: Build Project
-          shell: pwsh
-          run: |
+            call "D:\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
             cd ${{ github.workspace }}/build
-            & "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.37.32822\bin\Hostx64\x64\nmake.exe"
+            qmake ..
+            nmake
         
         - name: Run Tests
-          shell: pwsh
+          shell: cmd
           run: |
+            call "D:\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
             cd ${{ github.workspace }}/build
             .\release\huehnerManager.exe
         

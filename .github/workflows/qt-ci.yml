@@ -45,7 +45,9 @@ jobs:
           shell: pwsh
           run: |
             cd ${{ github.workspace }}\build
-            & "D:\Qt\6.5.3\msvc2019_64\bin\qmake.exe" ..
+            $qmakePath = (Get-Command qmake).Source
+            Write-Host "qmake path: $qmakePath"
+            & $qmakePath ..
         
         - name: Build Project
           shell: pwsh

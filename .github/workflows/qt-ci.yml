@@ -44,7 +44,7 @@ jobs:
         - name: Configure and Build Project
           shell: cmd
           run: |
-            call "D:\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+            call "C:\Program Files\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
             cd ${{ github.workspace }}/build
             qmake ..
             nmake
@@ -52,7 +52,7 @@ jobs:
         - name: Run Tests
           shell: cmd
           run: |
-            call "D:\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+            call "C:\Program Files\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
             cd ${{ github.workspace }}/build
             .\release\huehnerManager.exe
         

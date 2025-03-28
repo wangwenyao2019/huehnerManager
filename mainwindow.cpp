@@ -35,7 +35,7 @@ MainWindow::MainWindow(const QString &role, QWidget *parent, QSqlDatabase db)
     setWindowIcon(pix);
     setWindowTitle(tr("Hühner Manager Pro v1.0"));
 
-    //Menü Hidden oder Anzeigen
+    //Men眉 Hidden oder Anzeigen
     setMenuState(false);
     if(role == "admin")
         setMenuState(true);
@@ -79,13 +79,13 @@ void MainWindow::on_actionNeue_Mitarbeiter_triggered()
 void MainWindow::on_action_Druck_triggered()
 {
    FrmStammdaten *stammdaten = qobject_cast<FrmStammdaten*>(centralWidget());
-    if(!stammdaten)             //Überprüft, ob das Widget FrmStammdaten ist
+    if(!stammdaten)             //脺berpr眉ft, ob das Widget FrmStammdaten ist
    {
        QMessageBox::warning(this, tr("Drucken"), tr("Bitte wechseln Sie zuerst zur Stammdaten-Seite"));
        return;
     }
     QTableView *tableView = stammdaten->findChild<QTableView*>("tvStammdaten");     // Sucht die Tabellenansicht mit dem Namen "tvStammdaten"
-    if (!tableView || !tableView->model()) {                                        // Prüft, ob die Tabelle oder ihr Modell existiert
+    if (!tableView || !tableView->model()) {                                        // Pr眉ft, ob die Tabelle oder ihr Modell existiert
         QMessageBox::warning(this, tr("Fehler"), tr("Tabellenansicht nicht gefunden"));
         return;
     }
@@ -113,7 +113,7 @@ void MainWindow::on_action_Druck_triggered()
     html += "</table></body></html>";
     QTextDocument doc;
     doc.setHtml(html);
-    QPrinter printer(QPrinter::HighResolution);                         // Erstellt einen Drucker mit hoher Auflösung
+    QPrinter printer(QPrinter::HighResolution);                         // Erstellt einen Drucker mit hoher Aufl枚sung
     QPrintPreviewDialog preview(&printer, this);                        // Erstellt ein Druckvorschau-Fenster
     QObject::connect(&preview, &QPrintPreviewDialog::paintRequested,
                      [&doc](QPrinter *printer) {

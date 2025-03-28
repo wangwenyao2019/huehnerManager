@@ -42,12 +42,16 @@ jobs:
             New-Item -ItemType Directory -Path "${{ github.workspace }}/build"
             
         - name: Configure and Build Project
-          shell: cmd
+          shell: pwsh
           run: |
-            call "C:\Program Files\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
-            cd ${{ github.workspace }}/build
-            qmake ..
-            nmake
+            $vsPath = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+            $vcvarsallPath = Join-Path $vsPath "VC\Auxiliary\Build\vcvars64.bat"
+              
+            Write-Host "Visual Studio Path: $vsPath"
+            Write-Host "vcvarsall Path: $vcvarsallPath"
+              
+            cmd /c "call `"$vcvarsallPath`" && cd ${{ github.workspace }}/build && qmake .. && nmake"
+  
         
         - name: Run Tests
           shell: cmd

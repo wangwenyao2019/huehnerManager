@@ -40,6 +40,18 @@ jobs:
               Remove-Item -Path "${{ github.workspace }}/build" -Recurse -Force
             }
             New-Item -ItemType Directory -Path "${{ github.workspace }}/build"
+
+            - name: Check Image File
+            shell: pwsh
+            run: |
+              $imagePath = "${{ github.workspace }}/Image/H¨¹hner.jpeg"
+              if (Test-Path $imagePath) {
+                Write-Host "Image file exists: $imagePath"
+              } else {
+                Write-Host "Image file not found: $imagePath"
+                Write-Host "Contents of Image directory:"
+                Get-ChildItem "${{ github.workspace }}/Image" -Recurse
+              }    
             
         - name: Configure and Build Project
           shell: pwsh

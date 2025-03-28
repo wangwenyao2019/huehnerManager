@@ -30,8 +30,8 @@ jobs:
           shell: pwsh
           run: |
             # Set Qt environment variables
-            echo "QTDIR=D:\Qt\6.5.3\msvc2019_64" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
-            echo "PATH=D:\Qt\6.5.3\msvc2019_64\bin;$env:PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            echo "QTDIR=$env:RUNNER_WORKSPACE\Qt\6.5.3\msvc2019_64" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+            echo "PATH=$env:RUNNER_WORKSPACE\Qt\6.5.3\msvc2019_64\bin;$env:PATH" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
 
         - name: Prepare Build Directory
           shell: pwsh

@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/img">
-        <file>Image/Hühner.jpeg</file>
+        <file>Image/Huehner.jpg</file>
         <file>Image/login.png</file>
         <file>Image/jidan.jpg</file>
         <file>Image/xiaoji.jpg</file>

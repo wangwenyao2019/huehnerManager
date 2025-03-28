@@ -50,7 +50,7 @@ public:
         label = new QLabel(spalshScreen);
         label->setObjectName("label");
         label->setMaximumSize(QSize(523, 436));
-        label->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/H\303\274hner.jpeg")));
+        label->setPixmap(QPixmap(QString::fromUtf8(":/img/Image/Huehner.jpg")));
         label->setScaledContents(true);
 
         verticalLayout->addWidget(label);

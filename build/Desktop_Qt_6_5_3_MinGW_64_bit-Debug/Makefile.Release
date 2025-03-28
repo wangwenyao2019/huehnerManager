@@ -135,7 +135,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_Ressourcen.cpp
 release/qrc_Ressourcen.cpp: ../../Ressourcen.qrc \
 		../../../../Qt/6.5.3/mingw_64/bin/rcc.exe \
-		../../Image/Hühner.jpeg \
+		../../Image/Huehner.jpg \
 		../../Image/jidan.jpg \
 		../../Image/muji.jpg \
 		../../Image/xiaoji.jpg \

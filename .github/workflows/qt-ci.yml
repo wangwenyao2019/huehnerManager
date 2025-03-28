@@ -44,7 +44,7 @@ jobs:
         - name: Check Image File
           shell: pwsh
           run: |
-            $imagePath = "${{ github.workspace }}/Image/H¨¹hner.jpeg"
+            $imagePath = "${{ github.workspace }}/Image/Huehner.jpg"
             if (Test-Path $imagePath) {
               Write-Host "Image file exists: $imagePath"
             } else {

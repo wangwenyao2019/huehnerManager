@@ -68,7 +68,7 @@ jobs:
         - name: Run Tests
           shell: cmd
           run: |
-            call "C:\Program Files\microsoft visual studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat"
+            call "D:\microsoft visual studio\Community\VC\Auxiliary\Build\vcvars64.bat"
             cd ${{ github.workspace }}/build
             .\release\huehnerManager.exe
         
